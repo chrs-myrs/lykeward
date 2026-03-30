@@ -1,0 +1,37 @@
+# Knowledge Store Governance Zones
+#
+# Levels:
+#   strict  — Full provenance, confidence, source references required
+#   light   — Naming conventions, minimal frontmatter
+#   none    — No rules, scratch space
+#
+# Rules:
+#   provenance_required         — Files must include source references
+#   confidence_mandatory        — Confidence field required
+#   source_reference_mandatory  — Source or source_id field required
+#   immutable_signals           — Observation-type files are immutable
+#   naming_conventions          — Files must follow kebab-case naming
+
+zones:
+  data/core:
+    level: strict
+    rules:
+      provenance_required: true
+      confidence_mandatory: true
+      source_reference_mandatory: true
+      immutable_signals: true
+      naming_conventions: true
+
+  data/research:
+    level: light
+    rules:
+      naming_conventions: true
+
+  data/internal:
+    level: none
+    rules: {}
+
+# Cross-zone rules:
+# - Strict content MUST NOT cite none-zone content as provenance
+# - Content may be promoted from light to strict (requires full metadata)
+# - Assessments spanning zones should reside in light zone
