@@ -8,7 +8,7 @@ governed-by:
   - ../workspace/knowledge-operations.spec.md
   - ../workspace/constitution.spec.md
 specifies:
-  - ../../.claude/skills/consultation-prep/skill.md
+  - ../../.claude/skills/consultation-prep/SKILL.md
 ---
 
 # Consultation Prep Skill

@@ -29,6 +29,7 @@ Lykeward captures health observations with minimal friction, lets structure emer
 | `investigation` | Diagnostic hypothesis thread | mutable | core |
 | `evidence` | External documents (GP letters, referrals) | immutable | core |
 | `measurement-series` | Time-series health data | append-only | core |
+| `genetic-profile` | Genomic test anchor (WGS, genotyping, microbiome) | mutable | core |
 
 ### Key Traits
 

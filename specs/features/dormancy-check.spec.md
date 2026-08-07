@@ -8,7 +8,7 @@ governed-by:
   - ../workspace/knowledge-operations.spec.md
   - ../workspace/constitution.spec.md
 specifies:
-  - ../../.claude/skills/dormancy-check/skill.md
+  - ../../.claude/skills/dormancy-check/SKILL.md
 ---
 
 # Dormancy Check Skill

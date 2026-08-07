@@ -8,7 +8,7 @@ governed-by:
   - ../workspace/knowledge-operations.spec.md
   - ../workspace/constitution.spec.md
 specifies:
-  - ../../.claude/skills/health-check-in/skill.md
+  - ../../.claude/skills/health-check-in/SKILL.md
 ---
 
 # Health Check-In Skill

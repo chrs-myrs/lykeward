@@ -8,7 +8,7 @@ governed-by:
   - ../workspace/knowledge-operations.spec.md
   - ../workspace/constitution.spec.md
 specifies:
-  - ../../.claude/skills/investigate-health/skill.md
+  - ../../.claude/skills/investigate-health/SKILL.md
 ---
 
 # Health Investigation Skill

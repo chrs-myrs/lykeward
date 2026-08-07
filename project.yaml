@@ -22,7 +22,7 @@ forgewick:
     version: 2.0.0
 
   context:
-    domain: software-development  # TODO: Update based on project type
+    domain: personal-health
     trust_level: full
     risk_profile: low
 

@@ -18,6 +18,7 @@ Extends: core
 | `investigation` | Diagnostic hypothesis — "why does X happen?" Patient initiates, clinician informs. | temporal, relational | mutable |
 | `evidence` | External documents — GP letters, referral forms, discharge letters, NHS records | named, temporal, immutable | immutable |
 | `measurement-series` | Time-series health data — BP, weight, B12 levels, eye prescriptions | temporal, relational | append-only |
+| `genetic-profile` | Genomic test anchor — WGS, genotyping, microbiome sequencing | named, temporal, relational | mutable |
 
 ## Frontmatter Fields
 
@@ -40,7 +41,7 @@ Extends: core
 | `date` | Yes | YYYY-MM-DD |
 | `severity` | No | mild | moderate | severe (patient-assessed) |
 | `temporality` | No | acute | episodic | chronic | recurrent (AI suggests) |
-| `body_system` | No | neurological | respiratory | musculoskeletal | dermatological | mental-health | gastrointestinal | cardiovascular | endocrine | immunological | sensory | urological | oral |
+| `body_system` | No | neurological | respiratory | musculoskeletal | dermatological | mental-health | gastrointestinal | cardiovascular | endocrine | immunological | sensory | urological | oral | hepatic | genetic |
 | `observation_confidence` | No | certain | likely | uncertain |
 | `flagged_for_gp` | No | Boolean — true if this observation should be raised at next GP consultation. Set by /health-check-in clinical flags. |
 | `links` | No | Array of {to, type, relational_confidence, flagged_for_review} |
@@ -116,7 +117,7 @@ Extends: core
 | `traits` | Yes | `[temporal, immutable, relational]` |
 | `id` | Yes | TEST-YYYYMMDD-NNN |
 | `date` | Yes | YYYY-MM-DD |
-| `test_type` | Yes | blood | imaging | measurement | assessment | screening |
+| `test_type` | Yes | blood | imaging | measurement | assessment | screening | genetic |
 | `ordered_by` | No | Clinician who ordered |
 | `encounter_ref` | No | Encounter that triggered this |
 
@@ -158,6 +159,23 @@ Extends: core
 | `created` | Yes | YYYY-MM-DD |
 | `last_updated` | Yes | YYYY-MM-DD |
 
+### genetic-profile
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `type` | Yes | Always `genetic-profile` |
+| `traits` | Yes | `[named, temporal, relational]` |
+| `entity` | Yes | Kebab-case identifier (e.g. `nebula-wgs-2021`) |
+| `source` | Yes | Provider (e.g. `nebula-genomics`) |
+| `test_date` | Yes | YYYY-MM-DD (or YYYY-MM if day unknown) |
+| `test_method` | Yes | wgs | wes | genotyping-array | microbiome |
+| `coverage` | No | Sequencing depth (e.g. `0.4x`) |
+| `reference_genome` | No | Reference build (e.g. `GRCh37`) |
+| `sample_id` | No | Lab sample identifier |
+| `data_location` | No | URI or path to raw data files |
+| `created` | Yes | YYYY-MM-DD |
+| `last_updated` | Yes | YYYY-MM-DD |
+
 ## Traits
 
 | Trait | Meaning |
@@ -187,6 +205,10 @@ Extends: core
 - `[improvement]` — Positive change noticed
 - `[trigger]` — Something that seems to cause or worsen symptoms
 - `[medication-change]` — Dose change, new medication, or stopped medication
+- `[genetic-risk]` — Polygenic risk score finding from genomic data
+- `[pharmacogenomics]` — Drug metabolism variant
+- `[carrier-status]` — Recessive condition carrier finding
+- `[microbiome]` — Microbiome composition finding
 
 ## Naming Conventions
 

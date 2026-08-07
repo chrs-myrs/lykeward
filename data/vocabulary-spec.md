@@ -72,6 +72,24 @@ version: 1.0.0
 | `side-effect` | Treatment causing unwanted effect |
 | `differential` | Alternative explanation for the same symptoms |
 
+## genetic_test_method
+
+| Value | Definition |
+|-------|-----------|
+| `wgs` | Whole genome sequencing |
+| `wes` | Whole exome sequencing |
+| `genotyping-array` | SNP genotyping array |
+
+## prs_assessment
+
+| Value | Definition |
+|-------|-----------|
+| `very-high` | ≥95th percentile |
+| `above-average` | 60th–94th percentile |
+| `average` | 40th–59th percentile |
+| `below-average` | 6th–39th percentile |
+| `very-low` | ≤5th percentile |
+
 ## Edge-Case Guidance
 
 ## Governance
